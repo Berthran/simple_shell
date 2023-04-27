@@ -8,7 +8,7 @@
  * Return: void
  */
 
-int main(void)
+int print_parent_id(void)
 {
 	pid_t pidp;
 

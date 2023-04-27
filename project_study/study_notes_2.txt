@@ -1,0 +1,18 @@
+Process Handling Syscalls
+
+Definition of Program
+----------------------
+A program is a sequence of instructions and data that can be executed a single time, multiple times or concurrently.
+
+Definition of a Process
+-----------------------
+A process is the execution of programs. In the same process, the operating system can load differenct programs.
+
+fork()
+It is used by processes to create the processes that are copies of themselves. 
+With the help of such system calls, a child process can be created by the parent process.
+Until the child process is executed completely, the parent process is suspended.
+*  The  child process and the parent process run in separate memory spaces.
+* On success, the PID of the child process is returned in the parent, and 0 is
+returned  in  the child.  On failure, -1 is returned in the parent, no child
+process is created,

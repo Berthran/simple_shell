@@ -1,0 +1,34 @@
+System Calls
+------------
+
+1. getline()
+
+#include <stdio.h>
+-----------------------------------------------------------------------------------
+size_t getline(char **lineptr, size_t *n, FILE *stream);
+-----------------------------------------------------------------------------------
+* Reads an entire line from 'stream'
+* Stores the address of the buffer containing the text into 'lineptr'
+* 'lineptr' is a pointer to a block allocated with malloc or calloc which allocates memory for the program when run. This parameter is of type char **; it will contain the line read by getline.
+* On success, it returns the number of characters read not including the 
+null byte '\0'. And -1 on failure
+
+>>> getline(&buffer,&size,stdin);
+
+&buffer is the address of the first character position where the input string will be stored. The string input is stored at the memory location referenced by pointer buffer.
+&size is the address of the variable that holds the size of the input buffer, another pointer.
+stdin is the input file handle. So you could use getline() to read a line of text from a file, but when stdin is specified, standard input is read.
+
+
+2. execve()
+* Allows a process to execute another process.
+* Loads the new program into the current process' memory.
+* On success execve does not return to continue the rest of the "previous" program
+* #include <unistd.h>
+------------------------------------------------------------------------------------int execve(const char *pathname, char *const argv[], char *const envp[]);
+-----------------------------------------------------------------------------------
+pathname must be either a binary executable, or a  script.
+argv  is an array of argument strings passed to the new program.
+envp is an array of strings, conventionally of the form key=value, which are passed as  environment  to  the new  program.
+The argv and envp arrays must each include a null pointer at the end of the array.
+
